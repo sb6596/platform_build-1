@@ -834,9 +834,9 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   device_specific.FullOTA_InstallBegin()
 
   CopyInstallTools(output_zip)
-  script.UnpackPackageDir("install", "/tmp/install")
-  script.SetPermissionsRecursive("/tmp/install", 0, 0, 0o755, 0o644, None, None)
-  script.SetPermissionsRecursive("/tmp/install/bin", 0, 0, 0o755, 0o755, None, None)
+#  script.UnpackPackageDir("install", "/tmp/install")
+#  script.SetPermissionsRecursive("/tmp/install", 0, 0, 0o755, 0o644, None, None)
+#  script.SetPermissionsRecursive("/tmp/install/bin", 0, 0, 0o755, 0o755, None, None)
 
   if target_info.get("system_root_image") == "true":
     sysmount = "/"

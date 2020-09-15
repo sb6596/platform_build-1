@@ -160,11 +160,11 @@ class EdifyGenerator(object):
     if self.fstab:
       p = self.fstab[mount_point]
     if dynamic:
-      self.script.append(('run_program("/tmp/install/bin/backuptool.sh", "%s", map_partition("%s"), "%s");' % (
+      self.script.append(('run_program(package_extract_file("install/bin/backuptool.sh"), "%s", map_partition("%s"), "%s");' % (
           command, p.device, p.fs_type)))
       self.script.append(('unmap_partition("%s");' % (p.device)))
     else:
-      self.script.append(('run_program("/tmp/install/bin/backuptool.sh", "%s", "%s", "%s");' % (
+      self.script.append(('run_program(package_extract_file("install/bin/backuptool.sh"), "%s", "%s", "%s");' % (
           command, p.device, p.fs_type)))
 
   def ShowProgress(self, frac, dur):
@@ -262,7 +262,7 @@ class EdifyGenerator(object):
   def UnpackPackageDir(self, src, dst):
     """Unpack a given directory from the OTA package into the given
     destination directory."""
-    self.script.append('package_extract_dir("%s", "%s");' % (src, dst))
+#    self.script.append('package_extract_dir("%s", "%s");' % (src, dst))
 
   def Comment(self, comment):
     """Write a comment into the update script."""
