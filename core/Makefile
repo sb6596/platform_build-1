@@ -4984,7 +4984,7 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(OTA_FROM_TARGET_
 	@echo "Package OTA: $@"
 	$(call build-ota-package-target,$@,-k $(KEY_CERT_PAIR) --output_metadata_path $(INTERNAL_OTA_METADATA))
 
-TARGET_PACKAGE := $(PRODUCT_OUT)/AospExtended-$(EXTENDED_VERSION)-$(TARGET_DEVICE)-$(shell date -u +%Y%m%d-%H%M)-$(EXTENDED_BUILD_TYPE).zip
+TARGET_PACKAGE := $(PRODUCT_OUT)/AospExtended-$(EXTENDED_VERSION)-$(TARGET_DEVICE)-$(EXTENDED_BUILD_DATE)-$(EXTENDED_BUILD_TYPE).zip
 
 .PHONY: otapackage bacon aex
 otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)
